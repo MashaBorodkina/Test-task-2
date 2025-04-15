@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Mask Text</title>
+
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+         }
+
+      html, body {
+        height: 100%;
+        }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        height: 600px;
+        margin: 0 auto;
+        position: relative;
+        aspect-ratio: 1200 / 700;
+        overflow: hidden;
+    }
+
+      video {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+      }
+      svg {
+        position: absolute;
+        z-index: 2;        
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      @media (max-width: 800px) {
+        .container {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 1200 / 700;
+        }
+      }
+
+ 
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="Footage_video.mp4" type="video/mp4" />
+    </video>
+   </div>
+
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <mask id="text-mask" maskUnits="userSpaceOnUse">
+                <rect width="100%" height="100%" fill="white" />
+
+                <rect x="500" y="110" width="340" height="50" fill="black" />
+                <rect x="360" y="210" width="130" height="50" fill="black" />
+                <rect x="510" y="310" width="210" height="50" fill="black" />
+                <rect x="550" y="410" width="630" height="50" fill="black" />
+            </mask>
+        </defs>
+
+        <rect width="100%" height="100%" fill="black" mask="url(#text-mask)" />
+
+        <!-- Первый ряд -->
+        <text x="30" y="160" fill="white" font-size="90" font-weight="600" font-family="Helvetica">We’re here</text>
+        <text x="850" y="160" fill="white" font-size="90" font-weight="600" font-family="Helvetica">to make</text>
+        <!-- Второй ряд -->
+        <text x="30" y="260" fill="white" font-size="90" font-weight="600" font-family="Helvetica">healthy</text>
+        <text x="500" y="260" fill="white" font-size="90" font-weight="600" font-family="Helvetica">living effortless,</text>
+        <!-- Третий ряд -->
+        <text x="30" y="360" fill="white" font-size="90" font-weight="600" font-family="Helvetica">so you can</text>
+        <text x="730" y="360" fill="white" font-size="90" font-weight="600" font-family="Helvetica">live longer</text>
+        <!-- Четвёртый ряд -->
+        <text x="30" y="460" fill="white" font-size="90" font-weight="600" font-family="Helvetica">and happier</text>
+          
+    </svg>
+    </div>  
+</body>
+</html>
+    
